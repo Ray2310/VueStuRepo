@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+    //遍历对象
+    <div id="app">
+      <ul>    
+        <li v-for="(item, index) in list">{{ item }} -- {{ index }}</li>
+      </ul>
+    </div>
+
+
+  </div>
+  value:对象中的值
+  key:对象中的键
+  index:遍历索引从0开始
+
+  //遍历数字
+  item从1 开始
+  
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script>
+    
+    const app1 = new Vue({
+      el: '#app',
+      data: {
+        list: ['new','new1','new2']
+        // value: 10  
+      }
+    })
+  </script>
+</body>
+</html>

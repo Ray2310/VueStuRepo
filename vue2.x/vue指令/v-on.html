@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <div id="app">
+    <!-- 2. 事件处理函数  -->
+    <button @click="fn">点击</button>
+    <br><br><br>
+    <!-- 两种实现事件绑定方式 `v-on 可以替换为 @` 【 click 还可以改为其他的-->
+    <button @click="count--">-</button>
+    <span>{{ count }}</span>
+    <button v-on:click="count= count+2">+</button>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        count: 100
+      },
+      methods: {
+        // 事件处理函数需要写在methods里面
+        fn(){
+          console.log("事件处理函数")
+          this.count = 10000 // 可以对data中的数据做处理 但是最好通过this 而不是通过标签的id app。 这样方便管理
+
+        }
+      }
+    })
+
+
+  </script>
+  
+</body>
+</html>

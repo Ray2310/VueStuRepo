@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>  
+  <!-- 可以看出， 如果没有被el 指定，那么即使使用了语法，也不会渲染数据到页面 -->
+  <div class="box1">{{msg}}</div>
+  <div class="box2"></div>
+
+  <!-- 模版语法: {{变量名}} -->
+  <div id="app">
+    {{msg}} 
+    <p>{{ipaddr}}</p>
+  </div>
+
+
+  <!-- 一旦引入 vue 就会注册成为一个全局变量， 就可以使用vue的构造函数 -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+
+  <script src="./demo.js"></script>
+
+</body>
+</html>

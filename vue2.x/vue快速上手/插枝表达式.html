@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>插值表达式</h1>
+  <p>作用：利用表达式进行插值，渲染到页面中</p>
+
+  <p style="color: red;">语法: {{ 表达式 }}</p>
+  <h2>测试</h2>
+  <div id="app">
+    {{ msg  + "hello"}}
+    <p>{{ age >= 18 ? '成年' : '未成年' }}</p>
+  </div>
+
+  <!-- 
+    1.在插值表达式中使用的数据 必须在data中进行了提供
+    <p>{{hobby}}</p>  //如果在data中不存在 则会报错
+
+    2.支持的是表达式，而非语句，比如：if   for ...
+    <p>{{if}}</p>
+
+    3.不能在标签属性中使用 {{  }} 插值 (插值表达式只能标签中间使用)
+    <p title="{{username}}">我是P标签</p>
+   -->
+
+<!-- TODO: 一定要引入vue才行 -->
+   <script src="./vue.js"></script>
+  <script>
+  // 插值表达式
+  // 作用：利用表达式进行插值，渲染到页面中
+
+    const app = new Vue({
+      el: '#app',
+      data: {
+        msg: "需要显示的内容",
+        age: 18
+      }
+    })
+
+
+
+  </script>
+</body>
+</html>
