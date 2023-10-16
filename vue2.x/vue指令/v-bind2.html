@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <h3>@keyup.enter  →  监听键盘回车事件</h3>
+    <input @keyup.enter="fn()" v-model="username" type="text">
+    <button @click="fn()">点击显示</button>
+  </div>
+
+
+    <!-- v-model.trim —>去除首位空格
+        v-model.number —>转数字
+    -->
+    <div>
+      <input v-model.trim="username" type="text">
+    </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        username: ''
+      },
+      methods: {
+        fn(){
+          /*
+           * 也可以在input中使用 @keyup.然后在这里使用if判断 
+           */
+          console.log(this.username)
+        }
+      }
+    })
+  </script>
+</body>
+</html>

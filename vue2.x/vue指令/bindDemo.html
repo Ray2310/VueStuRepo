@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    ul {
+      display: flex;
+      border-bottom: 2px solid #e01222;
+      padding: 0 10px;
+    }
+    li {
+      width: 100px;
+      height: 50px;
+      line-height: 50px;
+      list-style: none;
+      text-align: center;
+    }
+    li a {
+      display: block;
+      text-decoration: none;
+      font-weight: bold;
+      color: #333333;
+    }
+    li a.active {
+      background-color: #e01222;
+      color: #fff;
+    }
+
+  </style>
+  <!-- 
+    1. 基于v-for 实现动态列表的渲染
+    2. 准备下标高亮的activeIndex
+    3. 基于下标，动态的实现控制class类名
+
+   -->
+
+<div id="app">
+    <ul>
+      <li v-for="(item, index) in list" :key="item.id" @click="activeIndex=index">
+        <a v-bind:class="{active: index === activeIndex ? true : false }">{{ item.name }}</a>
+      </li>
+      <!-- <li><a class="active" href="#">京东秒杀</a></li> -->
+      <!-- <li><a href="#">每日特价</a></li> -->
+      <!-- <li><a href="#">品类秒杀</a></ldd -->
+    </ul>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        activeIndex: 2,
+        list: [
+          { id: 1, name: '京东秒杀' },
+          { id: 2, name: '每日特价' },
+          { id: 3, name: '品类秒杀' }
+        ]
+      } 
+    })
+  </script>
+  
+</body>
+</html>
