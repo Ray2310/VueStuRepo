@@ -77,8 +77,7 @@ const app = new Vue({
       return this.fruitList.reduce((sum, item)=>sum += (item.price * item.num),0)
     }
   }, 
-
-  //方法
+  //方法 test
   methods: {
     del(id){
       //找出id == id的 然后 用filter过滤调
