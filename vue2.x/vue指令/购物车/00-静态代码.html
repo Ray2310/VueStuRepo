@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/inputnumber.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <title>购物车</title>
+  </head>
+  <body>
+    <div class="app-container" id="app">
+      <!-- 顶部banner -->
+      <div class="banner-box"><img src="http://autumnfish.cn/static/fruit.jpg" alt="" /></div>
+      <!-- 面包屑 -->
+      <div class="breadcrumb">
+        <span>🏠</span>
+        /
+        <span>购物车</span>
+      </div>
+      <!-- 购物车主体 -->
+      <div class="main">
+        <div class="table">
+          <!-- 头部 -->
+          <div class="thead">
+            <div class="tr">
+              <div class="th">选中</div>
+              <div class="th th-pic">图片</div>
+              <div class="th">单价</div>
+              <div class="th num-th">个数</div>
+              <div class="th">小计</div>
+              <div class="th">操作</div>
+            </div>
+          </div>
+          <!-- 身体 -->
+          <div class="tbody" v-if="fruitList.length > 0">
+            <div class="tr active" v-for="(item, index) in fruitList" :key="item.id">
+              <!-- 选中 -->
+              <div class="td"><input v-model="item.isChecked" type="checkbox" checked /></div>
+              <!-- 图片 -->
+              <div class="td"><img :src="item.icon"/></div>
+              <!-- 单价 -->
+              <div class="td">{{item.price}}</div>
+              <!-- 个数 -->
+              <div class="td">
+                <div class="my-input-number">
+                  <button @click="item.num--" class="decrease"> - </button>
+                  <span class="my-input__inner">{{item.num}}</span>
+                  <button @click="item.num++" class="increase"> + </button>
+                </div>
+              </div>
+              <!-- 小计 -->
+              <div class="td">{{ item.price * item.num }}</div>
+              <!-- 操作 -->
+              <div class="td"><button @click="del(item.id)">删除</button></div>
+            </div>
+
+            <!-- <div class="tr">
+              <div class="td"><input type="checkbox"/></div>
+              <div class="td"><img src="http://autumnfish.cn/static/荔枝.png" alt="" /></div>
+              <div class="td">7</div>
+              <div class="td">
+                <div class="my-input-number">
+                  <button disabled class="decrease"> - </button>
+                  <span class="my-input__inner">1</span>
+                  <button class="increase"> + </button>
+                </div>
+              </div>
+              <div class="td">14</div>
+              <div class="td"><button>删除</button></div>
+            </div> -->
+          </div>
+        </div>
+        <!-- 底部 -->
+        <div class="bottom">
+          <!-- 全选 -->
+          <label class="check-all">
+            <input @click="full()" type="checkbox" />
+            全选
+          </label>
+          <div class="right-box">
+            <!-- 所有商品总价 -->
+            <span class="price-box">总价&nbsp;&nbsp;:&nbsp;&nbsp;¥&nbsp;<span class="price">{{ totalCount }}</span></span>
+            <!-- 结算按钮 -->
+            <button class="pay">结算( 6 )</button>
+          </div>
+        </div>
+      </div>
+      <!-- 空车 -->
+      <div class="empty">🛒空空如也</div>
+    </div>
+    <script src="../../vue快速上手/vue.js"></script>
+    <script src="./buy.js">  </script>
+  </body>
+</html>
