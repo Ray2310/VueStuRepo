@@ -76,7 +76,8 @@ const app = new Vue({
     totalCount(){
       return this.fruitList.reduce((sum, item)=>sum += (item.price * item.num),0)
     }
-  },
+  }, 
+
   //方法
   methods: {
     del(id){
